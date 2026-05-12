@@ -6,15 +6,17 @@ using System;
 
 public class Countdown : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI countdownText;
+    [SerializeField] public TextMeshProUGUI countdownText;
     public float countdownTime = 180f;
-    private bool active = true;
+    public bool active = false;
     public GameObject endPanel;
+    public DetectionScript detectionScript;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        active = false;
+        countdownText.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -50,7 +52,8 @@ public class Countdown : MonoBehaviour
         if (countdownTime <= 0)
         {
             countdownTime = 0f;
-            endPanel.SetActive(true);
+            // endPanel.SetActive(true);
+            detectionScript.openDoor();
 
         }
         TimeSpan t = TimeSpan.FromSeconds(countdownTime);

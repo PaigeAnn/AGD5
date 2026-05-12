@@ -128,6 +128,15 @@ public class PlayerScript : MonoBehaviour
             deathPanel.SetActive(true);
                 countdown.StopTimer();
         }
+        if(other.CompareTag("Detection"))
+        {
+            countdown.active = true;
+            countdown.countdownText.gameObject.SetActive(true);
+        }
+        if(other.CompareTag("badcube"))
+        {
+            deathPanel.SetActive(true);
+        }
     }
 
     private void OnTriggerExit(Collider other)
