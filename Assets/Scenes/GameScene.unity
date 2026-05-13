@@ -220,6 +220,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1004885040248432, guid: d33dacd1b04621a45b57954059a05b63, type: 3}
       insertIndex: -1
       addedObject: {fileID: 924620202}
+    - targetCorrespondingSourceObject: {fileID: 1004885040248432, guid: d33dacd1b04621a45b57954059a05b63, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 924620205}
   m_SourcePrefab: {fileID: 100100000, guid: d33dacd1b04621a45b57954059a05b63, type: 3}
 --- !u!1001 &25766389
 PrefabInstance:
@@ -1576,7 +1579,21 @@ MonoBehaviour:
   enemy: {fileID: 1057450933}
   endPanel: {fileID: 0}
   raycastDistance: 10
-  doorTrans: {fileID: 0}
+  waypoint:
+  - {fileID: 1631530118}
+  - {fileID: 382640332}
+--- !u!114 &211150185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211150167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05323a9a11f7fb64a95069e5ea83455f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MenuScript
 --- !u!4 &213460332 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4275857132672486, guid: c93c0ae3682d2fe42acb15cae0c22cc1, type: 3}
@@ -2783,6 +2800,37 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 621664448}
   m_SourcePrefab: {fileID: 100100000, guid: b965426d3c27d8949834c48fb3c3e11f, type: 3}
+--- !u!1 &382640331
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 382640332}
+  m_Layer: 0
+  m_Name: Waypoint2
+  m_TagString: Untagged
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &382640332
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 382640331}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.986, y: 1.9482, z: 1.73953}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &385351585 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1250179683496984642, guid: 2248965773e1b6844b6bfb0d38949fe3, type: 3}
@@ -2830,7 +2878,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &401758813
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2887,6 +2935,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickupObject
   destinationObject: {fileID: 2058767720}
+--- !u!114 &401758823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401758803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e97816eb16a54f542a08df060ed3d25a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FallingFix
+  obj: {fileID: 401758803}
+  startPos: {x: 0, y: 0, z: 0}
 --- !u!1 &402400563 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1575307287436860, guid: 1209b9e2d8719c84ca81a9a6ec6a2450, type: 3}
@@ -3972,6 +4034,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1414874992600044, guid: c28a54961ca4e2241bc820f22acd0c43, type: 3}
       insertIndex: -1
       addedObject: {fileID: 515799826}
+    - targetCorrespondingSourceObject: {fileID: 1414874992600044, guid: c28a54961ca4e2241bc820f22acd0c43, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 515799829}
   m_SourcePrefab: {fileID: 100100000, guid: c28a54961ca4e2241bc820f22acd0c43, type: 3}
 --- !u!4 &515799815 stripped
 Transform:
@@ -4009,7 +4074,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!64 &515799818
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4066,6 +4131,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickupObject
   destinationObject: {fileID: 2058767720}
+--- !u!114 &515799829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515799816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e97816eb16a54f542a08df060ed3d25a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FallingFix
+  obj: {fileID: 515799816}
+  startPos: {x: 0, y: 0, z: 0}
 --- !u!1001 &521664665
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6386,6 +6465,7 @@ GameObject:
   - component: {fileID: 725830064}
   - component: {fileID: 725830063}
   - component: {fileID: 725830072}
+  - component: {fileID: 725830076}
   m_Layer: 0
   m_Name: Book_02 (2)
   m_TagString: PickupItem
@@ -6419,7 +6499,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &725830064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6548,6 +6628,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 725830062}
   m_Mesh: {fileID: 4300000, guid: eaf1b3e89a9fb804d935d4886918f2b5, type: 3}
+--- !u!114 &725830076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 725830062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e97816eb16a54f542a08df060ed3d25a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FallingFix
+  obj: {fileID: 725830062}
+  startPos: {x: 0, y: 0, z: 0}
 --- !u!4 &728293517 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4987085533484924, guid: b5f92c0ae5375784aa9821a735af4a35, type: 3}
@@ -8823,7 +8917,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &924620197
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8880,6 +8974,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickupObject
   destinationObject: {fileID: 2058767720}
+--- !u!114 &924620205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 924620189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e97816eb16a54f542a08df060ed3d25a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FallingFix
+  obj: {fileID: 924620189}
+  startPos: {x: 0, y: 0, z: 0}
 --- !u!1001 &927537599
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10417,6 +10525,7 @@ GameObject:
   - component: {fileID: 1123139556}
   - component: {fileID: 1123139555}
   - component: {fileID: 1123139564}
+  - component: {fileID: 1123139568}
   m_Layer: 0
   m_Name: Book_02 (3)
   m_TagString: PickupItem
@@ -10450,7 +10559,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &1123139556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10579,6 +10688,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1123139554}
   m_Mesh: {fileID: 4300000, guid: 4508e2873f6e757499767fcaf3fb1aee, type: 3}
+--- !u!114 &1123139568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123139554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e97816eb16a54f542a08df060ed3d25a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FallingFix
+  obj: {fileID: 1123139554}
+  startPos: {x: 0, y: 0, z: 0}
 --- !u!1 &1123647894 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1818843062643276, guid: 12a0173eb6797364a8c4547d00bb3cde, type: 3}
@@ -12606,6 +12729,7 @@ GameObject:
   - component: {fileID: 1420279383}
   - component: {fileID: 1420279388}
   - component: {fileID: 1420279396}
+  - component: {fileID: 1420279400}
   m_Layer: 0
   m_Name: Book_02
   m_TagString: PickupItem
@@ -12652,7 +12776,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!4 &1420279392
 Transform:
   m_ObjectHideFlags: 0
@@ -12768,6 +12892,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1420279382}
   m_Mesh: {fileID: 4300000, guid: 1d8a5677c1af86845aaf8b37ef7358d4, type: 3}
+--- !u!114 &1420279400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1420279382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e97816eb16a54f542a08df060ed3d25a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FallingFix
+  obj: {fileID: 1420279382}
+  startPos: {x: 0, y: 0, z: 0}
 --- !u!1 &1426061090
 GameObject:
   m_ObjectHideFlags: 0
@@ -14258,6 +14396,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1069979172622536, guid: 15f35431f02030b4d8f63720ec8c2c0b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 401758819}
+    - targetCorrespondingSourceObject: {fileID: 1069979172622536, guid: 15f35431f02030b4d8f63720ec8c2c0b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 401758823}
     - targetCorrespondingSourceObject: {fileID: 1413684344838888, guid: 15f35431f02030b4d8f63720ec8c2c0b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1706451521}
@@ -14270,6 +14411,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1413684344838888, guid: 15f35431f02030b4d8f63720ec8c2c0b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1706451532}
+    - targetCorrespondingSourceObject: {fileID: 1413684344838888, guid: 15f35431f02030b4d8f63720ec8c2c0b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1706451536}
   m_SourcePrefab: {fileID: 100100000, guid: 15f35431f02030b4d8f63720ec8c2c0b, type: 3}
 --- !u!1 &1543023275
 GameObject:
@@ -14979,6 +15123,37 @@ Transform:
   - {fileID: 992442407}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1631530117
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1631530118}
+  m_Layer: 0
+  m_Name: Waypoint1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1631530118
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1631530117}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.63, y: 1.69, z: 1.85}
+  m_LocalScale: {x: 1, y: 1.5442, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1633529140
 GameObject:
   m_ObjectHideFlags: 0
@@ -15629,7 +15804,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &1706451526
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15686,6 +15861,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickupObject
   destinationObject: {fileID: 2058767720}
+--- !u!114 &1706451536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1706451516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e97816eb16a54f542a08df060ed3d25a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FallingFix
+  obj: {fileID: 1706451516}
+  startPos: {x: 0, y: 0, z: 0}
 --- !u!1 &1708031783
 GameObject:
   m_ObjectHideFlags: 0
@@ -16169,6 +16358,7 @@ GameObject:
   - component: {fileID: 1751634384}
   - component: {fileID: 1751634383}
   - component: {fileID: 1751634392}
+  - component: {fileID: 1751634396}
   m_Layer: 0
   m_Name: Book_02 (1)
   m_TagString: PickupItem
@@ -16202,7 +16392,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &1751634384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16331,6 +16521,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1751634382}
   m_Mesh: {fileID: 4300000, guid: de3391c4e2e22114391ca06dd133cb63, type: 3}
+--- !u!114 &1751634396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751634382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e97816eb16a54f542a08df060ed3d25a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FallingFix
+  obj: {fileID: 1751634382}
+  startPos: {x: 0, y: 0, z: 0}
 --- !u!1 &1773561213 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6327812319544840679, guid: ef25ea8de18d06c43a8f912f68791e87, type: 3}
@@ -17091,6 +17295,7 @@ MonoBehaviour:
   raycastDistance: 5
   Player: {fileID: 211150167}
   rb: {fileID: 0}
+  fallingFix: {fileID: 0}
 --- !u!4 &1876612421 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 35430867136665213, guid: 60fb543c2d177ff46ab95d3866f3970b, type: 3}
@@ -17945,7 +18150,7 @@ Transform:
   m_GameObject: {fileID: 2058767719}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.1899995, y: 0.806, z: 7.13}
+  m_LocalPosition: {x: 1.84, y: 0.806, z: 7.13}
   m_LocalScale: {x: 0.4736427, y: 0.40154672, z: 0.5400001}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -17968,7 +18173,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -19584,21 +19789,37 @@ PrefabInstance:
       propertyPath: countdown
       value: 
       objectReference: {fileID: 1751270437}
+    - target: {fileID: 1578885159214831816, guid: dfe5450389bf7c142a8a6cb8da38cc10, type: 3}
+      propertyPath: waypoint.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1578885159214831816, guid: dfe5450389bf7c142a8a6cb8da38cc10, type: 3}
+      propertyPath: 'waypoint.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1631530118}
+    - target: {fileID: 1578885159214831816, guid: dfe5450389bf7c142a8a6cb8da38cc10, type: 3}
+      propertyPath: 'waypoint.Array.data[1]'
+      value: 
+      objectReference: {fileID: 382640332}
     - target: {fileID: 8146182290636145043, guid: dfe5450389bf7c142a8a6cb8da38cc10, type: 3}
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 8146182290636145043, guid: dfe5450389bf7c142a8a6cb8da38cc10, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9095549476627145030, guid: dfe5450389bf7c142a8a6cb8da38cc10, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.39
+      value: 4.63
       objectReference: {fileID: 0}
     - target: {fileID: 9095549476627145030, guid: dfe5450389bf7c142a8a6cb8da38cc10, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.76
+      value: 1.69
       objectReference: {fileID: 0}
     - target: {fileID: 9095549476627145030, guid: dfe5450389bf7c142a8a6cb8da38cc10, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.20152
+      value: 1.85
       objectReference: {fileID: 0}
     - target: {fileID: 9095549476627145030, guid: dfe5450389bf7c142a8a6cb8da38cc10, type: 3}
       propertyPath: m_LocalRotation.w
@@ -19754,6 +19975,10 @@ PrefabInstance:
       propertyPath: deathPanel
       value: 
       objectReference: {fileID: 2070858510}
+    - target: {fileID: 1835678268817664748, guid: 60fb543c2d177ff46ab95d3866f3970b, type: 3}
+      propertyPath: menuScript
+      value: 
+      objectReference: {fileID: 211150185}
     - target: {fileID: 3775820907641980721, guid: 60fb543c2d177ff46ab95d3866f3970b, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -19968,6 +20193,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1727879855864025922, guid: 60fb543c2d177ff46ab95d3866f3970b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 211150183}
+    - targetCorrespondingSourceObject: {fileID: 1727879855864025922, guid: 60fb543c2d177ff46ab95d3866f3970b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 211150185}
     - targetCorrespondingSourceObject: {fileID: 5827823643158874524, guid: 60fb543c2d177ff46ab95d3866f3970b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1876612420}
@@ -20122,3 +20350,5 @@ SceneRoots:
   - {fileID: 606588381}
   - {fileID: 4313293996539286045}
   - {fileID: 5379290104650128651}
+  - {fileID: 1631530118}
+  - {fileID: 382640332}

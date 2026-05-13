@@ -1,6 +1,7 @@
 using Unity.Content;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 using Cursor = UnityEngine.Cursor;
 
@@ -22,6 +23,8 @@ public class PlayerScript : MonoBehaviour
     public GameObject endPanel;
     public GameObject deathPanel;
     public int collectionCount=0;
+
+    public MenuScript menuScript;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -117,25 +120,25 @@ public class PlayerScript : MonoBehaviour
         }
         if (other.CompareTag("EndDoor"))
         {
+            countdown.StopTimer();
             if (collectionCount == 3)
             {
-                endPanel.SetActive(true);
+                menuScript.SuccessCutScene();
             }
-            countdown.StopTimer();
         }
         if (other.CompareTag("BadDoor"))
-        { 
-            deathPanel.SetActive(true);
-                countdown.StopTimer();
+        {
+            countdown.StopTimer();
+            menuScript.MouseTrapCutScene();
         }
-        if(other.CompareTag("Detection"))
+        if (other.CompareTag("Detection"))
         {
             countdown.active = true;
             countdown.countdownText.gameObject.SetActive(true);
         }
         if(other.CompareTag("badcube"))
         {
-            deathPanel.SetActive(true);
+            menuScript.CaptureCutScene();
         }
     }
 

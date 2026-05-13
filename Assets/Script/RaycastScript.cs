@@ -11,6 +11,7 @@ public class RaycastScript : MonoBehaviour
 
 
     public Rigidbody rb;
+    public FallingFix fallingFix;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -37,6 +38,10 @@ public class RaycastScript : MonoBehaviour
                     hit.collider.GetComponent<PickupObject>().PickUp();
                     holdingItem = true;
                     heldObject = hit.collider.gameObject;
+                    rb = heldObject.GetComponent<Rigidbody>();
+                    rb.excludeLayers = LayerMask.GetMask("Player");
+                    fallingFix = heldObject.GetComponent<FallingFix>();
+                    fallingFix.enabled = false;
                     //hit.collider.tag = "Untagged";
                 }
             }
@@ -47,7 +52,10 @@ public class RaycastScript : MonoBehaviour
             {
                 heldObject.GetComponent<PickupObject>().PickUp();
                 holdingItem = false;
+                rb.excludeLayers = 0;
                 heldObject = null;
+                fallingFix.enabled = true;
+                fallingFix.ResetPosition();
             }
         }
     }

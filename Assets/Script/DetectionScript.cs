@@ -11,12 +11,12 @@ public class DetectionScript : MonoBehaviour
 
     public float raycastDistance = 10f;
 
-    public Transform doorTrans;
+    public Transform[] waypoint  = new Transform[2];
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        doorTrans = door.transform;
         countdown.countdownTime = 5;
     }
 
@@ -24,34 +24,47 @@ public class DetectionScript : MonoBehaviour
     void Update()
     {
         enemy.transform.Rotate(0, 1, 0);
-        Debug.DrawRay(transform.position, transform.forward * raycastDistance, Color.green);
     }
     
     public void openDoor()
     {
         door.transform.position = new Vector3(door.transform.position.x, door.transform.position.y, door.transform.position.z + 1);
-        watch();
+        StartCoroutine(Detect());
     }
-    public void watch()
-    {
-        enemy.SetActive(true);
 
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit, raycastDistance))
+
+    IEnumerator Detect()
+    {
+        while (Vector3.Distance(enemy.transform.position, waypoint[1].position) > 0.1f)
         {
-            if (hit.collider.CompareTag("Player"))
-            {
-                endPanel.SetActive(true);
-            }
-        }
-        StartCoroutine(wait());
-    }
+            enemy.transform.position = Vector3.MoveTowards(
+                enemy.transform.position,
+                waypoint[1].position,
+                2f * Time.deltaTime
+            );
 
-    IEnumerator wait()
-    {
+            yield return null;
+        }
+
         yield return new WaitForSeconds(4f);
-        enemy.SetActive(false);
-        door.transform.position = new Vector3(door.transform.position.x, door.transform.position.y, door.transform.position.z - 1);
+
+        while (Vector3.Distance(enemy.transform.position, waypoint[0].position) > 0.1f)
+        {
+            enemy.transform.position = Vector3.MoveTowards(
+                enemy.transform.position,
+                waypoint[0].position,
+                2f * Time.deltaTime
+            );
+
+            yield return null;
+        }
+
+        door.transform.position = new Vector3(
+            door.transform.position.x,
+            door.transform.position.y,
+            door.transform.position.z - 1
+        );
+
         countdown.active = false;
         countdown.gameObject.SetActive(false);
         countdown.countdownTime = 5;
